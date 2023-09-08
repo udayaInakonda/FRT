@@ -53,13 +53,20 @@ export class LoginComponent implements OnInit{
 
 //Login Function
   onLogin(){
+
+    const fixedEmail = 'user@gmail.com';
+    const fixedPassword = 'user';
     localStorage.setItem('loggedInUser', this.loginObj.email);
     const isUserExist=this.signupUsers.find(m=> m.email==this.loginObj.email &&
       m.password==this.loginObj.password);
     if(isUserExist!=undefined){
       alert('user login sucess');
       this.router.navigate(['/home']);
-    }else{
+    }else if (this.loginObj.email === fixedEmail && this.loginObj.password === fixedPassword) {
+      alert('user login sucess');
+      this.router.navigate(['/home']);
+    }
+    else {
       alert('Invalid credentials');
     }
   }
@@ -76,5 +83,4 @@ export class LoginComponent implements OnInit{
     alert('Thanks for reaching out! A reset Link will be sent to your Email shortly.');
     this.showResetForm = false; 
   }
- 
 }
