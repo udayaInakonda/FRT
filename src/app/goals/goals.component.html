@@ -1,0 +1,97 @@
+<app-navbar></app-navbar>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- to display set a goal button -->
+<br><br>
+<button class='custo' (click)="toggleGoalForm()" >
+  <i class="fa-solid fa-circle-plus"></i> Set a Goal</button>
+<br>
+
+<!-- to display the goal form when button is clicked -->
+<div *ngIf="isGoalFormOpen" class="form-container">
+  <div class="form-content">
+    <h3>Set a Goal</h3>
+<form (ngSubmit)="setGoal()">
+  <div class="row">
+    <div class="col-md-3">
+    <label for="goalType">Goal Type:</label>
+    <select id="goalType" name="goalType" [(ngModel)]="selectedGoalType" class="form-control">
+      <option value="weightLoss">Weight Loss</option>
+      <option value="runningDistance">Running Distance</option>
+      <option value="other">Other</option>
+    </select>
+  </div> 
+  <div class="col-md-3">
+  <div *ngIf="selectedGoalType === 'other'">
+    <label for="customGoalTitle">Custom Goal Title:</label>
+    <input type="text" id="customGoalTitle" name="customGoalTitle" [(ngModel)]="customGoalTitle" class="form-control"> </div>
+  </div> 
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+    <label for="duration">Duration (in mins):</label>
+    <input type="number" id="duration" name="duration" [(ngModel)]="duration" class="form-control">
+  </div>
+  <div class="col-md-3">
+    <label for="distance">Distance:{{ distanceUnitPreference }}</label>
+    <input type="number" id="distance" name="distance" [(ngModel)]="distance" class="form-control">
+  </div>
+  </div>
+  <div class="col-md-3">
+    <label for="deadline">Deadline Date:</label>
+    <input type="date" id="deadline" name="deadline" [(ngModel)]="deadline" class="form-control">
+  </div>
+<br>
+  <button type="submit">Set Goal</button>
+</form>
+</div>
+<!-- to display the image in the right side alogn with the goal form -->
+<div class="image">
+  <img src="https://png.pngtree.com/png-vector/20220723/ourmid/pngtree-outdoor-workout-abstract-concept-vector-illustration-png-image_6045570.png" alt="Image">
+</div>
+</div>
+
+<!-- to give space between the form and goal log -->
+<br><br><br><br><br><br>
+
+
+<!-- to display the goal container -->
+<div class="goal-container">
+<h2><u>Goal Log</u></h2>
+</div>
+<br>
+<div class="card mb-5" *ngFor="let goal of goalLog">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-8 col-md-3">
+        <div class="card floating-card">
+          <div class="card-body">
+            <h3>{{goal.goal_name }}</h3>
+            <p>Duration: {{ goal.goalduration }} mins</p>
+            <p>Distance: {{ goal.goaldistance }} {{ distanceUnitPreference }} </p>
+            <p>Deadline: {{ goal.deadline }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- html to display the progrss bars -->
+      <div class="col-8 col-md-8">
+        <div class="progress">
+          <br><br>
+          <div class="progress-bar" role="progressbar" [style.width.%]="goal.duration_progress" [attr.aria-valuenow]="goal.duration_progress" aria-valuemin="0" aria-valuemax="100">
+            {{ goal.duration_progress | number: '1.0-0' }}%
+          </div>
+        </div>
+        <br>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" [style.width.%]="goal.distance_progress" [attr.aria-valuenow]="goal.distance_progress" aria-valuemin="0" aria-valuemax="100">
+            {{ goal.distance_progress  | number: '1.0-0' }}%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

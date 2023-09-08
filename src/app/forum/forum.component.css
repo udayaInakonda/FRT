@@ -1,0 +1,71 @@
+.card{
+    margin: 0 50px 0 80px;
+}
+.custo{
+    font-size: 20px;
+}
+
+.post-icon,
+.detail-icon {
+  position: absolute;
+  top: 120px;
+  left: -30px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+ font-size: 24px;
+}
+
+/* styling for the fire icon */
+.post-icon {
+  background-color: #ff6b6b; 
+  color: #ffffff; 
+}
+
+/* styling for detail icon in detail card */
+.detail-icon {
+  background-color: #28a745; 
+  color: #fff; 
+}
+
+/* Custom CSS for workout cards */
+.workout-card {
+    border: 2px solid #6c3d3d;
+    border-radius: 0 50px 50px 0;
+    padding: 10px;
+    margin-bottom: 25px;
+   
+  }
+  
+  /* Custom CSS for detail cards */
+  .detail-card {
+    border: 2px solid #2f6e3e;
+    border-radius: 0 50px 50px 0 ;
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+  
+/* Custom CSS for the fire button */
+.btn-like {
+    border-color: #ff6b6b; 
+  }
+  .btn-like:hover {
+    /* Reddish-orange color on hover */
+    border-color: #ff6b6b; 
+    background-color:#ff6b6b ;
+  }
+
+  /* custom style to set the icon for detail card */
+  .detail-icon{
+    top:50%;
+  }
+
+  .form-container{
+    margin-left:30px
+  }
+  .p{
+    font-size:30px;
+  }

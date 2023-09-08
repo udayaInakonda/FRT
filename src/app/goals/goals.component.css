@@ -1,0 +1,53 @@
+/* styling for progress bars */
+.progress-bar {
+    background-color: #000000;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  /* styling for form container */
+  .form-container {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  /* styling for form content */
+  .form-content {
+    flex: 1;
+    padding-right: 20px;
+    margin-left:30px;
+  }
+  
+  /* styling for the image when goal form is displayed */
+  .image {
+    flex: 0;
+  }
+
+  /* styling for goal container */
+  .goal-container {
+    text-align: center;
+  }
+
+/* styling to background goal card */
+  .card {
+  border-color: #000000;
+  margin: 15px 50px 0 50px;
+  height: 180px;
+  background-color: #b6ccdd;
+  }
+ 
+  /* styling for floating card */
+  .floating-card {
+    box-shadow: 3px 3px 9px #201f20;
+    position: relative;
+    top: -50px;
+    left: -80px;
+    width: 300px;
+    background-image: url('../../assets/image/gdetail.jpg');
+    background-position: center;
+    object-fit: cover;
+  }
+  
+  /* styling to increase the size of the set a goal button */
+  .custo{
+    font-size: 20px;
+  }

@@ -1,0 +1,27 @@
+/* styling for the profile picture */
+.profile-picture img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+ border:2px solid black;
+}
+
+/* styling for profile actions */
+.profile-actions input[type="file"] {
+  display: none;
+}
+
+
+/* styling for the profile strip on card */
+.cardb {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  height:100%;
+  padding: 15px;
+  background-color: #f7f5f3;
+  box-shadow: 0px 2px 5px rgb(0, 0, 0);
+}
+
+

@@ -1,0 +1,99 @@
+/* the styling of form content */
+  .form-content {
+    flex: 1;
+    padding-right: 20px;
+    margin-left: 30px;
+  }
+
+
+  /* styling to the workout log  */
+  .container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+   height:auto 
+  }
+
+/* styling for workout log heading */
+  .heading-container {
+    text-align: center;
+    margin-bottom: 10px; 
+  }
+  
+/* styling to increase the size of buttons */
+.custom-button {
+  font-size: 20px; 
+}
+
+
+/* styling to sett the images stack at the top left corner */
+.b-navbar{
+  position :fixed;
+  top:24%;
+  right:80px;
+  transform:translateY(-50%);
+  border-radius:4px;
+  height:20px;
+}
+
+/* Center the element horizontally and vertically */
+.wrappe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.img-area {
+  position: relative;
+  height: 180px;
+  width: 160px;
+}
+
+/* Create a box around the images */
+.img-box {
+  padding: 4px;
+  z-index: 200;
+  background-color: #ffffff;
+  width: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 5px 0 #333;
+  border: 1px solid #333;
+  transition: 0.5s;
+}
+
+/* resize the first image in the container */
+.img-area:hover .box-1 {
+  top: 210px;
+  left: 0;
+  width: 200px;
+}
+
+/*resize the second image in the container */
+.img-area:hover .box-2 {
+  top: 10px;
+  left: 210px;
+  width: 200px;
+}
+
+/* resize the third image in the container */
+.img-area:hover.box-3 {
+  top: 45px;
+  left: -140px;
+  width: 800px;
+}
+
+/* Rotate the second image by 5 degrees */
+.img-area img:nth-child(2) {
+  transform: rotate(5deg);
+  zoom: 1;
+}
+
+/* Rotate the third image by -8 degrees */
+.img-area img:nth-child(3) {
+  transform: rotate(-8deg);
+}
+

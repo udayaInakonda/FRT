@@ -1,0 +1,215 @@
+<app-navbar></app-navbar>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- to set the images stack in the top left corner -->
+  <div class="b-navbar" style="margin-right: 300px;">
+    <div class="b-navbar-link">
+      <div class="wrappe">
+        <div class="img-area">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/man-lifting-weights-in-gymnasium-royalty-free-image-1675442283.jpg" class="img-box box-1" >
+            <img src="https://www.apa.org/images/article-exercise-stress_tcm7-267951.jpg" class="img-box box-2">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/female-running-in-the-city-royalty-free-image-1568238508.jpg?crop=0.88973xw:1xh;center,top&resize=1200:*" class="img-box box-3" height="140px" width="280px">
+        </div>
+    </div>
+    </div>
+    </div>
+
+<!-- to display the Add outdoor workout  -->
+  <br>
+  <div>
+    <br><br>
+    <button class='custom-button' (click)="toggleOutdoorForm()">
+      <i class="fa-solid fa-circle-plus"></i> Add Outdoor Workout</button>
+    <br>
+
+<!-- to display the outdoor form -->
+    <div *ngIf="isOutdoorFormOpen" class="form-container">
+      <div class="form-content">
+        <br>
+        <h3>Add Outdoor Workout</h3>
+        <form (ngSubmit)="submitOutdoorForm()">
+          <div class="row">
+            <div class="col-md-3">
+              <label for="outdoorActivity">Activity: *</label>
+              <select id="outdoorActivity" name="outdoorActivity" [(ngModel)]="outdoorActivity" class="form-control">
+                <option value="Running">Running</option>
+                <option value="Cycling">Cycling</option>
+                <option value="Hiking">Hiking</option>
+                <option value="Swimming">Swimming</option>
+                <option value="Walking">Walking</option>
+              </select>
+            </div> 
+            <div class="col-md-3">
+              <label for="outdoorIntensity">Intensity: *</label>
+              <select id="outdoorIntensity" name="outdoorIntensity" [(ngModel)]="outdoorIntensity" class="form-control">
+                <option value="High">High</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="outdoorDuration">Duration: (in mins) *</label>
+              <input type="number" id="outdoorDuration" name="outdoorDuration" placeholder="Duration in Mins" [(ngModel)]="outdoorDuration" class="form-control">
+            </div>
+            <div class="col-md-3">
+              <label for="outdoorDistance">Distance: in {{distanceUnitPreference}} *</label>
+              <input type="number" id="outdoorDistance" name="outdoorDistance" placeholder="Distance in {{distanceUnitPreference}}" [(ngModel)]="outdoorDistance" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="outdoorTime">Start time: *</label>
+              <input type="time" id="outdoorTime" name="outdoorTime" [(ngModel)]="outdoorTime" class="form-control">
+            </div>
+            <div class="col-md-3">
+              <label for="endTime">End time: *</label>
+              <input type="time" id="endTime" name="endTime" [(ngModel)]="endTime" class="form-control">
+            </div>
+          </div>
+            <div class="col-md-5">
+              <label for="outdoorDate">Date: *</label>
+              <input type="date" id="outdoorDate" name="outdoorDate" [(ngModel)]="outdoorDate" class="form-control">
+            </div>
+            <div class="col-md-5">
+              <label for="bodyWeight">Body Weight: in {{ weightUnitPreference }} *</label>
+              <input type="number" id="bodyWeight" name="bodyWeight" placeholder="in {{ weightUnitPreference }}" [(ngModel)]="outWeight" class="form-control">
+            </div>
+            <div class="col-md-5">
+            <label for="outdoorDetails">Details: *</label>
+            <textarea id="outdoorDetails" name="outdoorDetails" placeholder="Add your experience/Achievement (or) enter NA if not interested" rows="3" cols="30" [(ngModel)]="outdoorDetails" class="form-control"></textarea>
+         </div>
+          <div class="form-group form-check">
+            <input type="checkbox" id="add" name="add" [(ngModel)]="addAsPost" class="form-check-input">
+            <label for="add" class="form-check-label">Add as post</label>
+          </div>
+          <button type="submit" >Submit</button>
+        </form>
+      </div>
+    </div>
+    <br>
+
+<!-- to display the toggle button of Indoor Form -->
+<button class='custom-button' (click)=" toggleIndoorForm()"> <i class="fa-solid fa-circle-plus"></i> Add Indoor Workout &nbsp;&nbsp;</button>
+  <div *ngIf="isIndoorFormOpen" class="form-container">
+    <div class="form-content">
+    <h3>Add Indoor Workout</h3>
+    <!-- to display the Indoor form -->
+    <form (ngSubmit)="submitIndoorForm()">
+      <div class="row">
+      <div class="col-md-3">
+      <label for="indoorActivity">Activity: *</label>
+      <select id="indoorActivity" name="indoorActivity" [(ngModel)]="indoorActivity" class="form-control">
+        <option value="Weightlifting">Weightlifting</option>
+        <option value="Yoga">Yoga</option>
+        <option value="Pilates">Pilates</option>
+        <option value="HIIT">HIIT</option>
+        <option value="Circuit Training">Circuit Training</option>
+      </select>
+     </div>
+     <div class="col-md-3">
+      <label for="indoorIntensity">Intensity: *</label>
+      <select id="indoorIntensity" name="indoorIntensity" [(ngModel)]="indoorIntensity" class="form-control">
+        <option value="High">High</option>
+        <option value="Moderate">Moderate</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+    </div>
+    <div class="col-md-5">
+      <label for="indoorDuration">Duration: *</label>
+      <input type="number" id="indoorDuration" name="indoorDuration" [(ngModel)]="indoorDuration" class="form-control">
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+    <label for="indoorTime">Start time: *</label>
+      <input type="time" id="indoorTime" name="indoorTime" [(ngModel)]="indoorTime" class="form-control">
+    </div>
+    <div class="col-md-3">
+      <label for="indoorEndTime">End time: *</label>
+      <input type="time" id="indoorEndTime" name="indoorEndTime" [(ngModel)]="indoorEndTime" class="form-control">
+    </div></div>
+    <div class="col-md-5">
+      <label for="indoorDate">Date: *</label>
+      <input type="date" id="indoorDate" name="indoorDate" [(ngModel)]="indoorDate" class="form-control">
+  </div>
+  <div class="col-md-5">
+    <label for="bodyWeight">Body Weight:in {{ weightUnitPreference }} *</label>
+  <input type="number" id="bodyWeight" name="bodyWeight" [(ngModel)]="inWeight" class="form-control">
+ </div>
+ <div class="col-md-5">
+      <label for="indoorDetails">Details: *</label>
+      <textarea id="indoorDetails" name="indoorDetails"  placeholder="Add your experience/Achievement (or) enter NA if not interested" rows="3" cols="30" [(ngModel)]="indoorDetails" class="form-control"></textarea>
+  </div>
+  <div class="form-group form-check">
+      <label for="addIndoor">Add as post</label>
+      <input type="checkbox" id="addIndoor" name="addIndoor" [(ngModel)]="addIndoorAsPost" class="form-check-input">
+    </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+  <br><br><br> <br><br><br> <br><br><br>
+
+  <!-- workout log heading -->
+    <div class="heading-container">
+    <h2>Workout Log</h2>
+    </div>
+    
+    <!-- workout log container -->
+  <div class="container">
+    <div *ngIf="showWorkoutLog">
+      <br>
+      <div>
+        <!-- implemntation fo date filter -->
+        <label for="dateFilter">Filter by Date :</label>
+        <div>
+          <label for="startDate">Start Date : </label>
+          <input type="date" id="startDate" [(ngModel)]="startDate" (change)="filterWorkoutsByDate()">
+        &nbsp;&nbsp;&nbsp;
+          <label for="endDate">End Date : </label>
+          <input type="date" id="endDate" [(ngModel)]="endDate" (change)="filterWorkoutsByDate()">
+        </div>
+
+<!-- workout log table-->
+      </div>
+      <br>
+      <table  class="table table-striped table-bordered" style="width:1100px;">
+        <thead class="thead-dark">
+          <tr>
+            <th>Activity</th>
+            <th>Intensity</th>
+            <th>Duration</th>
+            <th>Distance</th>
+            <th>Details</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Add as Post</th>
+            <th style="background-color: rgb(245, 135, 115);">Calories</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let workout of filteredWorkouts">
+            <td>{{ workout.activity }}</td>
+            <td>{{ workout.intensity }}</td>
+            <td>{{ workout.duration }}</td>
+            <td>{{workout.distance}}</td>
+            <td>{{ workout.details }}</td>
+            <td>{{ workout.time }} to {{workout.etime}}</td>
+            <td>{{ workout.date }}</td>
+            <td>{{ workout.addAsPost ? 'Yes' : 'No' }}</td>
+            <td style="background-color: rgb(243, 188, 178);">{{ workout.calories }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+
+

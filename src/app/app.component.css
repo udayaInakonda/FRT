@@ -1,0 +1,54 @@
+.profile.blue {
+    /* Define styles for the light theme */
+    background-color: #BFD7E3;
+    color: #333;
+    min-height: 100vh;
+    max-height: 100%;
+  }
+  
+ .profile.dark {
+    /* Define styles for the dark theme */
+    background-color: #b4b4b4;
+    color: #000000;
+    min-height: 100vh;
+  }
+
+  .profile.pink  {
+    /* Define styles for the dark theme */
+    background-color: #f1daf9;
+    color: #0e0e0e;
+    min-height: 100vh;
+  }
+  .profile.grey{
+    background-color: #ebeae0;
+    color:#4e3d38;
+    min-height: 100vh;
+  }
+
+/* to fix the position of theme selector */
+.b-navbar{
+    background-color: #151515;
+    padding:10px;
+    position :fixed;
+    top:18%;
+    right:0px;
+    transform:translateY(-50%);
+    border-radius:4px
+}
+
+.b-navbar-link{
+    color:#fff;
+    display: block;
+    padding:10px 6px;
+}
+
+.b-navbar-link:hover{
+    color:rgb(177, 245, 74);
+}
+
+.theme-selector {
+  position: absolute;
+  top: 25%;
+  right: 0;
+}
+

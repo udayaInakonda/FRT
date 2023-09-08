@@ -1,0 +1,194 @@
+
+h6 span{
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  /* Styling for Login and signUp above the slider  */
+}
+.full-height{
+  min-height: 100vh;
+ /* styling to set the Login card at the cente of the display despite the resolution */
+}
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+  /* checkbox is used in th background working of the slider */
+}
+.checkbox:checked + label,
+.checkbox:not(:checked) + label{
+  position: relative;
+  display: block;
+  width: 70px;
+  height: 16px;
+  border-radius: 8px;
+  margin: 10px auto;
+  background-color: #DDE6ED;
+  /* styling for the slider */
+}
+.checkbox:checked + label:before,
+.checkbox:not(:checked) + label:before{
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color:#3d414f;
+  background-color: #3d414f;
+  content: '\eb4f';
+  z-index: 20;
+  top: -10px;
+  left: -10px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 24px;
+  transition: all 0.5s ease;
+  /* styling for the dot on the slider */
+}
+.checkbox:checked + label:before {
+  transform: translateX(58px);
+  /* styling the slider toggle*/
+}
+
+.card-3d-wrap {
+  position: relative;
+  width: 440px;
+  max-width: 100%;
+  height: 400px;
+  perspective: 800px;
+  margin-top: 60px;
+  /* styling to set the dimensions of card*/
+}
+.card-3d-wrapper {
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  /* styling to rotate the card */
+  transition: all 600ms ease-out; 
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  background-color: #526D82;
+  position: absolute;
+  border-radius: 6px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  color: #ffffff;
+}
+.card-back {
+  transform: rotateY(180deg);
+}
+.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
+  transform: rotateY(180deg);
+  /* card to flip */
+}
+
+.center-wrap{
+  position: absolute;
+  width: 100%;
+  padding: 0 35px;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 35px) perspective(100px);
+  /* to wrap the content at center*/
+  z-index: 20;
+  display: block;
+}
+
+.form-group{ 
+  position: relative;
+  display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.form-style {
+  padding-left: 45px;
+  height: 48px;
+  width: 100%;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #0a0a0a;
+  background-color: #f0fafc;
+  /* styling to the input fields in form */
+}
+
+.btn{  
+  border-radius: 4px;
+  height: 44px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0 30px;
+  display: inline-flex;
+  align-items: center;
+  background-color: #27374D;
+  color: #ffffff;
+  /* styling to submit button */
+}
+.btn:hover{  
+  background-color: #6fafbc;
+  color: #090909;
+  /* hover styling to submit button */
+}
+
+
+/* slideshow container */
+.containe {
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #4b4b4b;
+  height: 100vh; /* desired height for the slideshow */
+  margin-left:-20px;
+}
+
+.wrapper {
+  display: flex;
+  animation: slide 25s infinite; /* animation duration  */
+}
+
+.wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-100%);
+  }
+  45% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-200%);
+  }
+  70% {
+    transform: translateX(-200%);
+  }
+  75% {
+    transform: translateX(-300%);
+  }
+  95% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(0); 
+  }
+}
+.link{
+  color: #ffffff;
+}

@@ -1,0 +1,17 @@
+ /* Navbar link styles */
+ .navbar-nav .nav-link {
+    color: white; 
+  }
+
+  /* Hover styles */
+  .navbar-nav .nav-link:hover {
+    background-color: rgb(199, 196, 196); 
+    color: rgb(12, 12, 12); 
+  }
+
+  .nav-item {
+    margin-right: 25px;
+    font-size:20px;
+  }
+
+

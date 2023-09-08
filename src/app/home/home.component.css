@@ -1,0 +1,153 @@
+/* stying the card that holds the circular image */
+.infocardContainer {
+  display: flex;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  background: #f9d3bf;
+  transition: all 500ms ease-in;
+  transition-delay: 500ms;
+  margin : 20px 40px 10px 40px;
+}
+
+/* style for the circular card on hover */
+.infocardContainer:hover {
+  width: 800px;
+  border-radius: 100px 10px 100px 100px;
+  transition: all 1s ease-out;
+}
+
+/* styles for the child elements within the container */
+.infocardContainer div * {
+  display: flex;
+  overflow: hidden;
+  color: rgb(8, 8, 8);
+  white-space: nowrap;
+  width: 0;
+  transition: all 500ms ease-out;
+}
+
+
+/* hover styles for the child elements within the container */
+.infocardContainer:hover div *{
+  display: flex;
+  visibility: visible;
+  transition: all 1s ease-out;
+  width: 100%;
+  height: auto;
+}
+
+/* Styles for the image and its container in the infocard */
+.infocardContainer #main, .infocardContainer #main img{
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+/* Styles for the image inside the infocard */
+.infocardContainer #main img{
+  height: 180px;
+  width: 180px;
+  position: relative;
+}
+
+
+/* Styles for the second container that holds circular image to the left*/
+.goals {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  background: #baf5ea;
+  transition: all 500ms ease-in;
+  transition-delay: 500ms;
+  margin : 20px 40px 10px 40px;
+}
+
+/* 
+Styles for on hover */
+.goals:hover {
+  width: 500px;
+  border-radius: 0px 80px 10px 80px;
+  transition: all 1s ease-out;
+}
+
+
+/* styles for the child elements in the goal container */
+.goals div * {
+  display: flex;
+  overflow: hidden;
+  text-overflow: hidden;
+  color: #000000; 
+  white-space: nowrap;
+  width: 0;
+  transition: all 500ms ease-out;
+}
+
+/* hover styles for the child elements in the goal container */
+.goals:hover div * {
+  width: 100%;
+  height: auto;
+  transition: all 1s ease-out;
+  transition-delay: 500ms;
+}
+
+/* Styles for the image and its container in the goals container */
+.goals #mains,
+.goals #mains img {
+  height: 200px;
+  width: 200px;
+  padding-left: 16px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+/* Styles for the image inside the goals container */
+.goals #mains img {
+  height: 180px;
+  width: 180px;
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+
+/*setting the height of the image inside the goals container */
+.hmage {
+  height: 300px; 
+}
+
+/* style for setting the logo image */
+div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* styles for the content section */
+.content {
+  margin-right: 60px;
+  flex: 60% 0 80%; 
+}
+
+/* style for setting text beside the first image */
+.flex-container {
+  display: flex;
+}
+
+/* style for second image hover */
+.flex-containe {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* style for setting text beside the second image */
+.mai{
+  margin-left: 60px;
+  flex: 60% 0 80%;
+}
+
+

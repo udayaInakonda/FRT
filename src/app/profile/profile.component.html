@@ -1,0 +1,91 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<app-navbar></app-navbar>
+
+<!-- space between navbar and profilecard -->
+<br><br><br><br><br><br><br><br><br><br> 
+
+<!-- html to display the profile card -->
+  <div class="container">
+  <div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card" style="background-image: url('https://image.shutterstock.com/image-illustration/3d-render-illustration-sport-fitness-260nw-1281812671.jpg'); background-repeat: no-repeat; background-size: cover;">
+      <div class="card-body">
+      <div class="row">
+      <!-- Left Column - Profile Information -->
+      <div class="col-md-6">
+        <div class="profile d-flex flex-column align-items-center">
+          <div class="cardb">
+          <br><br>
+          <div class="profile-picture">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img [src]= "profilePicture" alt="Profile Picture">
+          </div>
+          <div class="profile-details mt-3">
+          <h2>Name:{{ username }}</h2>
+          <p>Mail:{{ email }}</p>
+          </div>
+          <div class="profile-actions mt-3">
+        <div class="d-flex">
+      <label for="uploadProfilePic" class="btn btn-outline-primary">Upload Picture</label>
+      <input id="uploadProfilePic" type="file" accept="image/*" (change)="uploadProfilePicture($event)">
+      <label for="ProfilePic" class="btn btn-primary ms-2">Reload</label>
+      <input id="ProfilePic" type="file" (click)="ProfilePicture()">
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+            
+<!-- Right Column - Preferences and Checkboxes -->
+    <div class="col-md-6">
+                <div class="preferences" style="margin-left: 90px;">
+                  <h2>Preferences</h2>
+                  <label>
+                    Weight:
+                    <select class="form-select" [(ngModel)]="weightUnitPreference">
+                      <option value="kgs">Kilograms (kgs)</option>
+                      <option value="lbs">Pounds (lbs)</option>
+                    </select>
+                  </label>
+                  <br>
+                  <label>
+                    Distance:
+                    <select class="form-select" [(ngModel)]="distanceUnitPreference">
+                      <option value="kms">Kilometers (kms)</option>
+                      <option value="miles">Miles (mi)</option>
+                    </select>
+                  </label>
+
+                    <!-- Checkboxes for communication preferences -->
+                    <br>
+                    <h4>Reminders & Notifications</h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="emailCheckbox">
+                    <label class="form-check-label" for="emailCheckbox">Email</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="smsCheckbox">
+                    <label class="form-check-label" for="smsCheckbox">SMS</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="voiceCallCheckbox">
+                    <label class="form-check-label" for="voiceCallCheckbox">Voice Call</label>
+                  </div>
+                  <br>
+                  <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- logout button -->
+          <div class="text-center mt-2"> 
+            <button class="btn btn-danger" type="button" (click)="osalert()">Logout</button>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <iframe src="https://webchat.botframework.com/embed/fitnessbot-brxd7oy?s=hJfMgGH1H0w.S-8Y2rhaA-FF8bxPyZvAROUqvFrbvcnFwDP1ofEEL3c" style="min-width:400px;width:80%;min-height:50px;"></iframe>
+
+
