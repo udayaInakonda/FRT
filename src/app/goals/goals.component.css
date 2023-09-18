@@ -51,3 +51,11 @@
   .custo{
     font-size: 20px;
   }
+
+
+  /* Add styles for expired goals */
+.expired-goal {
+  background-color: #c1bebe; /* Pale background color */
+  border: 1px solid #ff0000; /* Red border */
+  color: #ff0000; /* Red text color */
+}
