@@ -6,4 +6,5 @@ export interface Goal {
   distance_progress?: number;
   deadline_start:string;
   deadline_end:string;
+  isExpired?: boolean;
 }
