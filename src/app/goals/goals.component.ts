@@ -42,6 +42,10 @@ export class GoalsComponent implements OnInit {
           const goalStartDate = new Date(goal.deadline_start);
           const goalEndDate = new Date(goal.deadline_end);
 
+          const currentDate = new Date();
+
+          goal.isExpired = currentDate > goalEndDate;
+
           // Filter workouts that fall within the date range of the goal
           const filteredWorkouts = this.filterWorkoutsByDate(user, goalStartDate, goalEndDate);
 
