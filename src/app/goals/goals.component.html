@@ -97,6 +97,8 @@
             {{ goal.distance_progress  | number: '1.0-0' }}%
           </div>
         </div>
+        <br>
+        <div *ngIf="goal.isExpired" class="expired-label"><h2> Goal Expired</h2></div>
       </div>
     </div>
   </div>
