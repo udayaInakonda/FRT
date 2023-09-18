@@ -40,9 +40,15 @@
     <input type="number" id="distance" name="distance" [(ngModel)]="distance" class="form-control">
   </div>
   </div>
+  <div class="row">
   <div class="col-md-3">
-    <label for="deadline">Deadline Date:</label>
-    <input type="date" id="deadline" name="deadline" [(ngModel)]="deadline" class="form-control">
+    <label for="deadline">Deadline Start Date:</label>
+    <input type="date" id="deadline" name="deadline" [(ngModel)]="deadline_start" class="form-control">
+  </div>
+  <div class="col-md-3">
+    <label for="deadline">Deadline End Date:</label>
+    <input type="date" id="deadline" name="deadline" [(ngModel)]="deadline_end" class="form-control">
+  </div>
   </div>
 <br>
   <button type="submit">Set Goal</button>
@@ -72,7 +78,7 @@
             <h3>{{goal.goal_name }}</h3>
             <p>Duration: {{ goal.goalduration }} mins</p>
             <p>Distance: {{ goal.goaldistance }} {{ distanceUnitPreference }} </p>
-            <p>Deadline: {{ goal.deadline }}</p>
+            <p>Deadline: {{ goal.deadline_end }}</p>
           </div>
         </div>
       </div>
