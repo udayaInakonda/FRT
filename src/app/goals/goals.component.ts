@@ -12,7 +12,8 @@ export class GoalsComponent implements OnInit {
   selectedGoalType: string = 'weightLoss';
   customGoalTitle: string = '';
   duration: number | undefined;
-  deadline: string = '';
+  deadline_start: string = '';
+  deadline_end:string='';
   distance: number | undefined;
   goalLog: Goal[] = [];
   tdurations: number = 0;
@@ -23,30 +24,51 @@ export class GoalsComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.loadGoalLog(); // Load user's goal log without overwriting the newly added goals
+    this.loadGoalLog();
+ 
   }
-
+  
 
   loadGoalLog() {
     const user = this.authService.getCurrentUserEmail();
     if (user) {
-      // Load workout log and calculate total durations and distances
-      const workoutLog = localStorage.getItem(user);
-      if (workoutLog) {
-        const workouts = JSON.parse(workoutLog);
-        this.tdurations = workouts.reduce((sum: number, workout: any) => sum + (workout.duration || 0), 0);
-        this.tdistances = workouts.reduce((sum: number, workout: any) => sum + (workout.distance || 0), 0);
-      }
-
-   
+      // Load user's goals from localStorage
       const userGoalLog = localStorage.getItem(user + '-goalLog');
       if (userGoalLog) {
         this.goalLog = JSON.parse(userGoalLog);
+
+        // Calculate progress for each goal based on date ranges
+        this.goalLog.forEach((goal) => {
+          const goalStartDate = new Date(goal.deadline_start);
+          const goalEndDate = new Date(goal.deadline_end);
+
+          // Filter workouts that fall within the date range of the goal
+          const filteredWorkouts = this.filterWorkoutsByDate(user, goalStartDate, goalEndDate);
+
+          // Calculate total duration and distance for filtered workouts
+          const totalDuration = filteredWorkouts.reduce((sum: number, workout: any) => sum + (workout.duration || 0), 0);
+          const totalDistance = filteredWorkouts.reduce((sum: number, workout: any) => sum + (workout.distance || 0), 0);
+
+          // Calculate progress percentage
+          goal.duration_progress = Math.min((totalDuration / goal.goalduration) * 100, 100);
+          goal.distance_progress = Math.min((totalDistance / goal.goaldistance) * 100, 100);
+        });
       }
 
-      this.loadDistanceUnitPreference(); // Load user's distance unit preference
-      this.updateGoalProgress(); // Update progress for existing goals
+      this.loadDistanceUnitPreference();
     }
+  }
+
+  filterWorkoutsByDate(user: string, startDate: Date, endDate: Date): any[] {
+    const workoutLog = localStorage.getItem(user);
+    if (workoutLog) {
+      const workouts = JSON.parse(workoutLog);
+      return workouts.filter((workout: any) => {
+        const workoutDate = new Date(workout.date);
+        return workoutDate >= startDate && workoutDate <= endDate;
+      });
+    }
+    return [];
   }
 
   // Load the user's distance unit preference from localStorage
@@ -74,8 +96,10 @@ export class GoalsComponent implements OnInit {
       const goal: Goal = {
         goal_name: goalTitle,
         goalduration: this.duration || 0,
-        deadline: this.deadline,
+        deadline_start: this.deadline_start,
+        deadline_end:this.deadline_end,
         goaldistance: this.distance || 0,
+       
         duration_progress: 0,
         distance_progress: 0
       };
@@ -87,6 +111,9 @@ export class GoalsComponent implements OnInit {
       this.goalLog.push(goal);
      
       localStorage.setItem(user + '-goalLog', JSON.stringify(this.goalLog));
+
+      
+      
       this.loadGoalLog(); // Save the updated goalLog to localStorage
       this.clearForm(); 
     }
@@ -135,6 +162,10 @@ export class GoalsComponent implements OnInit {
     if (user) {
       // Save the updated goalLog and remaining durations/distances to localStorage
       localStorage.setItem(user + '-goalLog', JSON.stringify(this.goalLog));
+
+      
+
+
       localStorage.setItem('tdurations', this.tdurations.toString());
       localStorage.setItem('tdistances', this.tdistances.toString());
     }
@@ -145,7 +176,8 @@ export class GoalsComponent implements OnInit {
     this.selectedGoalType = 'weightLoss';
     this.customGoalTitle = '';
     this.duration = undefined;
-    this.deadline = '';
+    this.deadline_start = '';
+    this.deadline_end='';
     this.distance = undefined;
   }
 
@@ -160,8 +192,11 @@ export class GoalsComponent implements OnInit {
       this.selectedGoalType.trim() !== '' &&
       (this.selectedGoalType !== 'other' || this.customGoalTitle.trim() !== '') &&
       this.duration !== undefined &&
-      this.deadline.trim() !== '' &&
+      this.deadline_start.trim() !== '' &&
+      this.deadline_end.trim() !== '' &&
       this.distance !== undefined
     );
   }
+
+
 }
