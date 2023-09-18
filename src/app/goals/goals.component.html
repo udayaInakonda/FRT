@@ -69,7 +69,7 @@
 <h2><u>Goal Log</u></h2>
 </div>
 <br>
-<div class="card mb-5" *ngFor="let goal of goalLog">
+<div class="card mb-5" *ngFor="let goal of goalLog"  [ngClass]="{'expired-goal': goal.isExpired}">
   <div class="card-body">
     <div class="row">
       <div class="col-8 col-md-3">
